@@ -14,7 +14,7 @@ public abstract class SpeedMeter {
     };
 
     //设置转速
-    public void setTrunRate(double tr){
+    public void setTurnRate(double tr){
         turnRate=tr;
     }
     
