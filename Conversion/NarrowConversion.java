@@ -1,5 +1,6 @@
 package Conversion;
 
+//缩小转换
 public class NarrowConversion {
     public static void main(String[] args) {
         var iValue = 233;

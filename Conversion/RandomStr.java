@@ -9,6 +9,9 @@ public class RandomStr {
         }
         System.out.println(result);
 
+        //这是错误的，5.6默认是double类型的，无法自动转float。需要 float f = (float)5.6;
+        //float f = 5.6;
+
         var s = "5.6";
         float s1 = Float.parseFloat(s);
         System.out.println(s1);

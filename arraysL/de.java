@@ -17,7 +17,7 @@ public class de {
         //存本类
         objArr2 = new Object[] {"c","d"};
         
-        //为什么不能用foreach了？openjdk version "11.0.13" 2021-10-19
+        //foreach
         for (int i : intArr) {
             System.out.println(i);
         }
