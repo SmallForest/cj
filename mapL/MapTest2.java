@@ -1,6 +1,7 @@
 package mapL;
 
 import java.util.HashMap;
+import java.util.function.Function;
 
 public class MapTest2 {
     public static void main(String[] args) {
@@ -42,5 +43,40 @@ public class MapTest2 {
         //其实不是坑，只要返回null就会删除，文档中提到了
 
         //以上的特点看文档 可以知道一二 https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html#compute(K,java.util.function.BiFunction)
+
+        System.out.println("-----computeIfAbsent-----"); //absent缺席
+        map.put("c",null);
+        System.out.println(map);
+        //新值是空
+        map.computeIfAbsent("c", k->null);
+        System.out.println(map);
+        map.computeIfAbsent("c", k->18);
+        map.computeIfAbsent("b", k->18);
+        map.computeIfAbsent("d", k->18);
+        System.out.println(map);
+
+
+        System.out.println("-----computeIfPresent-----");
+        map.put("c",null);
+        System.out.println(map);
+        //删除
+        map.computeIfPresent("d",(k,v)->null);
+        //什么也不做
+        map.computeIfPresent("c",(k,v)->18);
+        System.out.println(map);
+        map.computeIfPresent("c",(k,v)->null);
+        System.out.println(map);
+        //覆盖
+        map.computeIfPresent("b",(k,v)->22);
+        System.out.println(map);
+
+        var a = map.getOrDefault("c",123);
+        System.out.println(a);
+        a = map.getOrDefault("d",123);
+        System.out.println(a);
+
+        System.out.println("-----replaceAll------");
+        map.replaceAll((k,v)->v=19);
+        System.out.println(map);
     }
 }
