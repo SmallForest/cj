@@ -17,7 +17,7 @@ public class AnonymousDiamond {
         Foo<String> ff = a -> System.out.println("我用lambda表达式获取：" + a);
         ff.test("大王");
 
-        //泛型通配符 （后面提到）?表示 上限为Object
+        //泛型通配符 （后面提到）?表示 上限为Object ?表示不知道类型
         Foo<?> fo = new Foo<>() {
             @Override
             public void test(Object t) {
@@ -25,19 +25,19 @@ public class AnonymousDiamond {
             }
         };
         fo.test(null);
-        //这样写有问题
-        //fo.test(new String("1234"));
+        //由于fo无法被直接调用，所以只能强制转型为子类型
+        var s = (Foo<String>) fo;
+        s.test("22");
 
-        //上限为Number，Number是6个数值类型的父类
+        //上限为Number，Number是6个数值类型的父类 这种指定通配符上限的也不能写入，同样也是因为不知道元素类型
         Foo<? extends Number> fn = new Foo<>() {
             @Override
             public void test(Number t) {
-                System.out.println("Number : "+t);
+                System.out.println("Number : " + t);
             }
         };
-        //有问题待定
-        //fn.test(new Integer(1));
-        //fn.test(2.11);
+        var fn1 = (Foo<Integer>) fn;
+        fn1.test(22);
 
     }
 }
