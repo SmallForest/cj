@@ -4,3 +4,5 @@ out
 props.txt
 cj.iml
 *.ini
+lib
+*jpeg
