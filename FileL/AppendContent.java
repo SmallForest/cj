@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 public class AppendContent {
     public static void main(String[] args) {
         try (
-                var raf = new RandomAccessFile("out.txt", "rw");
+                var raf = new RandomAccessFile("out.txt", "rw")
         ) {
             //将seek到文件末尾
             raf.seek(raf.length());
