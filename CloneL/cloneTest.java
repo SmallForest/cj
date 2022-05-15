@@ -30,7 +30,7 @@ class User implements Cloneable {
         return (User) super.clone();
     }
 }
-public class CloneTest {
+public class cloneTest {
     public static void main(String[] args) throws CloneNotSupportedException {
         var user1 = new User("李");
         var user2 = user1.clone();
